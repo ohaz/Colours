@@ -1,0 +1,53 @@
+<IngameScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: root.height/8
+            Label:
+                id: label_misses
+                markup: True
+                text: 'Misses: [color=ff0000]' + str(root.misses) + '[/color]/3'
+            Label:
+                markup: True
+                text: '[b]Play![/b]'
+            Label:
+                id: label_points
+                markup: True
+                text: 'P: [color=00ff00]' + str(root.points) + '[/color]'
+        BoxLayout:
+            orientation: 'horizontal'
+            Widget:
+            GridLayout:
+                size_hint_x: None
+                width: self.height/2
+                cols: 5
+                rows: 10
+                id: grid
+            Widget:
+        Button:
+            text: 'Leave'
+            size_hint_y: None
+            height: root.height/8
+            on_press: root.leave()
+
+
+<ColourToggleButton>:
+    background_down: 'gfx/button_down.png'
+    background_normal: 'gfx/button.png'
+    on_press: root.colour_press()
+
+<GameOverPopup>:
+    title: 'Game Over'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: '[b]Points:[/b]'
+            markup: True
+        Label:
+            text: '[color=00ff00]' + str(root.screen.points) + '[/color]'
+            markup: True
+        Button:
+            text: 'Back'
+            on_press: root.close()

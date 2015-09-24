@@ -1,0 +1,13 @@
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Welcome to colours'
+            size_hint_y: None
+            height: root.height / 5
+        Button:
+            text: 'Start game'
+            on_press: root.start_game()
+        Button:
+            text: 'Leave game'
+            on_press: root.leave_game()
